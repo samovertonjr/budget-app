@@ -1,0 +1,29 @@
+{
+  "name": "budget-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samovertonjr/budget-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samovertonjr/budget-app/issues"
+  },
+  "homepage": "https://github.com/samovertonjr/budget-app#readme",
+  "devDependencies": {
+    "git-scripts": "^0.2.1",
+    "surge": "^0.20.1"
+  },
+  "git": {
+    "scripts": {
+      "pre-push": "surge --project ./ --my-budget.surge.sh"
+    }
+  }
+}
