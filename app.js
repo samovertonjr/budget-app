@@ -159,7 +159,7 @@ var UIController = (function() {
 
     dec = numSplit[1];
 
-    return type === 'exp' ? '-' : '+' + ' ' + int + '.' + dec;
+    return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;
   };
 
   return {
@@ -189,7 +189,7 @@ var UIController = (function() {
       //replace the placeholder text with some data
       newHtml = html.replace('%id%', obj.id);
       newHtml = newHtml.replace('%description%', obj.description);
-      newHtml = newHtml.replace('%value%', formatNumber(obj.value));
+      newHtml = newHtml.replace('%value%', formatNumber(obj.value, type));
 
       //insert the html into the DOM
       document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
@@ -216,7 +216,7 @@ var UIController = (function() {
     },
     displayBudget: function(obj) {
       var type;
-      obj.budget > 0 ? (type = 'inc') : (type = 'exp');
+      obj.budget >= 0 ? (type = 'inc') : (type = 'exp');
 
       document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget, type);
       document.querySelector(DOMstrings.incomeLabel).textContent = obj.totalInc;
